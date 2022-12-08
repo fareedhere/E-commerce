@@ -1,0 +1,59 @@
+{% extends 'shop/basic.html'%}
+{% block title %} Contact{% endblock title%}
+{% block body%}
+
+    <form  action="/shop/contact/" method="POST">{% csrf_token %}
+      <div class="mt-4">
+      <h3 align="left"><b>Contact us Regarding Any  Query</b></h3></div>
+      <div class="form-group mt-4">
+        <label for="email mt-4"><b>Email Address</b></label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+        />
+      </div>
+      <div class="form-group mt-4">
+        <label for="firstName"><b>Name</b></label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div class="form-group mt-4">
+        <label for="password1"><b>Phone</b></label>
+        <input
+          type="tel"
+          class="form-control"
+          id="phone"
+          name="phone"
+          placeholder="Enter password"
+        />
+      </div>
+      
+      <div class="form-group-mt-4">
+  <label for="Textarea"><b>Example textarea</b></label>
+  <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+</div>
+      <br />
+      <div class=" center mt-4">
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form></div>
+    
+
+{% endblock body%}
+
+
+{%block js%}
+<script>
+{% if thank %}
+alert('Thanks for contacting us. We wil get back to you soon!');
+document.location = "/shop/contact";
+{%endif%}
+</script>
+{% endblock js%}
